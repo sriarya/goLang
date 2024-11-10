@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// go is not a Object Oriented Program, so there's no concept of classes.
+
 func main() {
 	//go is a static language like  C++ and Java
 	//var card string = "Ace of Spades"
@@ -10,7 +12,8 @@ func main() {
 	//No need to use : for reassignment
 	card := newCard()
 	fmt.Println(card)
-	printState()
+	//fmt.Println(printState())
+	arrays()
 }
 
 // When retutning something from a function do mention the type of variable being returned

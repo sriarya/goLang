@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
-func printState() {
-	fmt.Println("California")
+func printState() string {
+	return " Welcome to California, it's a lovely place"
 }
