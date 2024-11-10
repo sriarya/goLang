@@ -10,6 +10,7 @@ func main() {
 	//No need to use : for reassignment
 	card := newCard()
 	fmt.Println(card)
+	printState()
 }
 
 // When retutning something from a function do mention the type of variable being returned
