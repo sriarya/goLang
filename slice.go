@@ -2,12 +2,12 @@ package main
 
 import "fmt"
 
-type deck []string
+type pack []string
 
 func arrays() {
 	//cards := []string{"Five of Spades", "Ace of Diamonds"}
 	// We can either define the slice as shown above, or prefne the type and then resuse
-	cards := deck{"Five of Spades", "Ace of Diamonds"}
+	cards := pack{"Five of Spades", "Ace of Diamonds"}
 	//A slice/array in Go can only have one type of value in it.
 	//Meaning either all of them have to be string or int, not both
 	cards = append(cards, "Seven of Diamonds")
@@ -20,8 +20,8 @@ func arrays() {
 // So what we have below is a receiver function.
 // Here its possible to define methods that can be applied to slice, only if we define a type
 // for the elements in the slice.
-func (d deck) print() {
-	for i, card := range d {
+func (p pack) print() {
+	for i, card := range p {
 		fmt.Println(i, card)
 	}
 }
