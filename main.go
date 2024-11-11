@@ -14,6 +14,7 @@ func main() {
 	fmt.Println(card)
 	//fmt.Println(printState())
 	arrays()
+	state()
 }
 
 // When retutning something from a function do mention the type of variable being returned
