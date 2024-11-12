@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 // go is not a Object Oriented Program, so there's no concept of classes.
 
 func main() {
@@ -10,11 +8,16 @@ func main() {
 	//card := "Ace of Spades" // here the type is being inferred by go
 	//and also use : for the very first initialisation
 	//No need to use : for reassignment
-	card := newCard()
-	fmt.Println(card)
+	// card := newCard()
+	// fmt.Println(card)
 	//fmt.Println(printState())
-	arrays()
-	state()
+	//arrays()
+
+	cards := newDeck()
+	hand, remainingCards := deal(cards, 5)
+	hand.print()
+	remainingCards.print()
+
 }
 
 // When retutning something from a function do mention the type of variable being returned
