@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // go is not a Object Oriented Program, so there's no concept of classes.
 
 func main() {
@@ -13,10 +15,13 @@ func main() {
 	//fmt.Println(printState())
 	//arrays()
 
-	cards := newDeck()
-	hand, remainingCards := deal(cards, 5)
-	hand.print()
-	remainingCards.print()
+	// cards := newDeck()
+	// cards.saveToFile("my_cards")
+	fmt.Println(newDeckFromFile("my"))
+	// hand, remainingCards := deal(cards, 5)
+	// hand.print()
+	// remainingCards.print()
+	// fmt.Println([]byte(cards.toString()))
 
 }
 

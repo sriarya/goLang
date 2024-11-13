@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"strings"
+)
 
 type deck []string
 
@@ -30,4 +34,23 @@ func (d deck) print() {
 // it doesn't define that the function call needs to have a type
 func deal(cards deck, handSize int) (deck, deck) {
 	return cards[:handSize], cards[handSize:]
+}
+
+func (d deck) toString() string {
+	return strings.Join([]string(d), ",")
+}
+
+func (d deck) saveToFile(filename string) error {
+	return os.WriteFile(filename, []byte(d.toString()), 0666)
+}
+
+func newDeckFromFile(filename string) deck {
+	bs, err := os.ReadFile(filename)
+	if err != nil {
+		//If there is anything wrong while reading the file, log the error and exit the program
+		fmt.Println("Error:", err)
+		os.Exit(1)
+	}
+	s := strings.Split(string(bs), ",")
+	return []string(s)
 }
