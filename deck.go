@@ -2,8 +2,10 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 type deck []string
@@ -16,7 +18,7 @@ func newDeck() deck {
 
 	for _, suit := range cardSuits {
 		for _, value := range cardValues {
-			cards = append(cards, value+"of"+suit)
+			cards = append(cards, value+" "+"of"+" "+suit)
 		}
 	}
 
@@ -53,4 +55,19 @@ func newDeckFromFile(filename string) deck {
 	}
 	s := strings.Split(string(bs), ",")
 	return []string(s)
+}
+
+func (d deck) shuffle() {
+	for i := range d {
+		//The randomisation that we are trying to acheive is not that good with the below code,
+		//as most of the times the same seed is used by go in rand, which generates very similar
+		//random pattern of numbers every time we call the function
+		//newPosition := rand.Intn(len(d) - 1)
+
+		//So we create a new source , which generates a seed based on current time and the we use it.
+		source := rand.NewSource(time.Now().UnixNano())
+		r := rand.New(source)
+		newPosition := r.Intn(len(d) - 1)
+		d[newPosition], d[i] = d[i], d[newPosition]
+	}
 }
