@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // go is not a Object Oriented Program, so there's no concept of classes.
 
 func main() {
@@ -13,16 +15,18 @@ func main() {
 	//fmt.Println(printState())
 	//arrays()
 
-	cards := newDeck()
+	//cards := newDeck()
 	// cards.saveToFile("my_cards")
-	cards.shuffle()
-	cards.print()
+	// cards.shuffle()
+	// cards.print()
 
 	// hand, remainingCards := deal(cards, 5)
 	// hand.print()
 	// remainingCards.print()
 	// fmt.Println([]byte(cards.toString()))
-
+	numberSlice := createIntSlice(11)
+	fmt.Println("Array", numberSlice)
+	fmt.Println(oddOrEven(12))
 }
 
 // When retutning something from a function do mention the type of variable being returned
